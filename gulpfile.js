@@ -34,6 +34,11 @@ gulp.task('clean', function () {
   return del('dist');
 });
 
+gulp.task('scss',function() {
+  return gulp.src(['src/scss/**'])
+    .pipe(gulp.dest('dist/scss'));
+});
+
 gulp.task('scripts', function () {
   return gulp.src(scripts)
     .pipe(concat('angular-resolution.js'))
@@ -47,5 +52,5 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('default', ['clean'], function () {
-  gulp.start(['scripts']);
+  gulp.start(['scripts','scss']);
 });

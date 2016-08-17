@@ -2,7 +2,6 @@
   "name": "angular-resolution",
   "description": "AngularJS directive for rem resolution(1rem/50px).",
   "main": [
-    "dist/css/resolution.css",
     "dist/js/angular-resolution.js"
   ],
   "authors": [

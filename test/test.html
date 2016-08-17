@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TestApp">
+<head>
+  <meta charset="UTF-8">
+  <title>resolution DEMO PAGE</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta content="telephone=no" name="format-detection"/>
+  <style type="text/css">
+    body {
+      font-family: 'STHeiti', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    }
+
+    [ng-cloak] {
+      display: none;
+    }
+
+    /*
+    scss:
+    import :
+    @improt "to-rem";
+
+    use :
+    toRem(12) ---> 12/50rem;
+    */
+  </style>
+</head>
+<body ng-controller="MainCtrl as vm" ng-cloak>
+
+
+
+<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="../bower_components/angular-module-stiffener/dist/angular-module-stiffener.js"></script>
+<script type="text/javascript" src="../dist/js/angular-resolution.js"></script>
+<script type="text/javascript">
+  var TestModule = angular.module('TestApp', ['nx.widget'])
+    .controller('MainCtrl', ['nxResolution',function (nxResolution) {
+      var vm = this;
+
+      nxResolution.useRem();
+      //You directive demo code goes here!
+    }]);
+</script>
+</body>
+</html>

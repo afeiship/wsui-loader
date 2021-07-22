@@ -1,56 +1,14 @@
-/**
- *  Welcome to your gulpfile!
- *  The gulp tasks are splitted in several files in the gulp directory
- *  because putting all here was really too long
- */
+(function() {
+  'use strict';
 
-'use strict';
+  var gulp = require('gulp');
+  var path = require('path');
+  var fs = require('fs');
 
-var gulp = require('gulp');
-var path = require('path');
-var del = require('del');
-var autoprefixer = require('gulp-autoprefixer');
-var debug = require('gulp-debug');
-var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var rename = require('gulp-rename');
-var cssmin = require('gulp-minify-css');
-var config = {
-  sassOptions: {
-    outputStyle: 'expanded' /* nested | expanded | compact | compressed */
-  },
-  src: './src',
-  dist: './dist/css'
-};
+  //import
+  fs.readdirSync('./build').map(function(file) {
+    require('./build/' + file);
+  });
 
-var scripts = [
-  './src/angular/main.js',
-  './src/angular/service/resolution.js'
-];
-
-
-gulp.task('clean', function () {
-  return del('dist');
-});
-
-gulp.task('scss',function() {
-  return gulp.src(['src/scss/**'])
-    .pipe(gulp.dest('dist/scss'));
-});
-
-gulp.task('scripts', function () {
-  return gulp.src(scripts)
-    .pipe(concat('angular-resolution.js'))
-    .pipe(gulp.dest('dist/js'))
-    .pipe(uglify())
-    .pipe(rename({
-      suffix: ".min",
-      extname: ".js"
-    }))
-    .pipe(gulp.dest('dist/js'));
-});
-
-gulp.task('default', ['clean'], function () {
-  gulp.start(['scripts','scss']);
-});
+  gulp.task('default', gulp.series(['clean', 'styles', 'docs']));
+})();

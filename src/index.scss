@@ -1,0 +1,26 @@
+/*wsui-loader Start*/
+$wsui-loader-options: (
+  background: #f3f3f3,
+  color: #3498db,
+  duration: 2s
+) !default;
+
+.wsui-loader {
+  $background: map-get($map: $wsui-loader-options, $key: background );
+  $color: map-get($map: $wsui-loader-options, $key: color );
+  $duration: map-get($map: $wsui-loader-options, $key: duration );
+
+  border: 0.5em solid $background;
+  border-radius: 50%;
+  border-top: 0.5em solid $color;
+  width: 3.6em;
+  height: 3.6em;
+  display: inline-block;
+  animation: wsui-loader-spin $duration linear infinite;
+
+  @keyframes wsui-loader-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}
+/*wsui-loader End*/

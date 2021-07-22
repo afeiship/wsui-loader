@@ -1,0 +1,24 @@
+/*wsui-loader Start*/
+.wsui-loader {
+  border: 0.5em solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 0.5em solid #3498db;
+  width: 3.6em;
+  height: 3.6em;
+  display: inline-block;
+  animation: wsui-loader-spin 2s linear infinite;
+}
+
+@keyframes wsui-loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*wsui-loader End*/
+.test-wsui-loader {
+  border: 1px solid red;
+}
